@@ -22,7 +22,8 @@
             <ListView>
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Имя твари"/>
+                        <GridViewColumn Header="Имя твари" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="Фамилия твари" DisplayMemberBinding="{Binding Lastname}"/>
                         <GridViewColumn Header="Раса твари"/>
                         <GridViewColumn Header="Оружие твари"/>
                     </GridView>

@@ -8,9 +8,11 @@ using System.Security.RightsManagement;
     public string Name { get; set; }
     [MysqlColumn("Lastname")]
     public string Lastname { get; set; }
+
     [MysqlRelation("RacesCharacters", "Id_Characters")]
     public List<RacesCharacters> racesCharacters { get; set; }
-    
+
+    [MysqlRelation("WeaponsCharacters", "Id_Characters")]
     public List<WeaponsCharacters> weaponsCharacters { get; set; }
     }
 

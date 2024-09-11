@@ -1,30 +1,56 @@
-﻿using ConsoleApp47;
+﻿using CapetsOchen;
 using MySqlConnector;
+using System.Windows;
 
-
-MySqlConnection mySqlConnection;
-MySqlConnectionStringBuilder sb =
-    new MySqlConnectionStringBuilder();
-sb.Server = "192.168.200.13";
-sb.UserID = "student";
-sb.Password = "student";
-sb.Database = "veryprostoiorm";
-sb.CharacterSet = "utf8mb4";
-sb.ConnectionTimeout = 5;
-mySqlConnection = new MySqlConnection(sb.ToString());
-
-try
+public class DB
 {
-    mySqlConnection.Open();
+    MySqlConnection mySqlConnection;
+
+    private DB()
+    {
+        MySqlConnectionStringBuilder sb = new MySqlConnectionStringBuilder();
+        sb.Server = "192.168.200.13";
+        sb.UserID = "student";
+        sb.Password = "student";
+        sb.Database = "veryprostoiorm";
+        sb.CharacterSet = "utf8mb4";
+        sb.ConnectionTimeout = 5;
+        mySqlConnection = new MySqlConnection(sb.ToString());
+
+        OpenConnection();
+    }
+    private bool OpenConnection()
+    {
+        try
+        {
+            mySqlConnection.Open();
+            return true;
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message);
+            return false;
+        }
+    }
+
+
+
+
+    public void CloseConnection()
+    {
+        try
+        {
+            mySqlConnection.Close();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message);
+        }
+    }
+
+
 }
-catch (MySqlException ex)
-{
-    Console.WriteLine($"{ex.Number}: {ex.Message}");
-    return;
-}
 
-MysqlTools.SetConnection(mySqlConnection);
 
-DataBase dataBase = new DataBase();
+    
 
-mySqlConnection.Close();

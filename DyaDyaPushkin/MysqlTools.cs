@@ -149,7 +149,6 @@ namespace ConsoleApp47
             sb.Append(");");
             string sql = sb.ToString();
             int count = 0;
-            row.Hash = Guid.NewGuid().ToString();
             using (var ms = new MySqlCommand(sql, mysql))
             {
                 foreach (var property in props)
@@ -161,7 +160,7 @@ namespace ConsoleApp47
                 count = ms.ExecuteNonQuery();
             }
 
-            sql = "select id from `" + attribute.TableName + "` where create_hash = '" + row.Hash + "'";
+            sql = "select id from `" + attribute.TableName;
             using (var ms = new MySqlCommand(sql, mysql))
             using (var dr = ms.ExecuteReader())
             {
