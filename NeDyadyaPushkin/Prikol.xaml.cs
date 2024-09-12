@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,18 @@ namespace CapetsOchen.NeDyadyaPushkin
     /// </summary>
     public partial class Prikol : Window
     {
+        public ObservableCollection<Character> characters;
+
+        public ObservableCollection<Character> Characters
+        {
+            get => characters; set { characters = value; }
+        }
+
         public Prikol()
         {
             InitializeComponent();
+            DataContext = this;
+
         }
 
     }
