@@ -1,0 +1,29 @@
+﻿<Window x:Class="CapetsOchen.NeDyadyaPushkin.DobavitTvar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CapetsOchen.NeDyadyaPushkin"
+        mc:Ignorable="d"
+        Title="DobavitTvar" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <StackPanel>
+                <StackPanel DataContext="{Binding Characters}">
+                    <Label Content=" "/>
+                    <Label Content="Имя падлы"/>
+                    <TextBox Text="{Binding Name}"/>
+                    <Label Content=" "/>
+                    <Label Content="Фамилия падлы "/>
+                    <TextBox Text="{Binding LastName}"/>
+                    <Label Content=" "/>
+                    <Label Content="Раса падлы "/>
+                    <TextBox Text="{Binding RacesCharacters}"/>
+                    <Label Content=" "/>
+                    <Label Content="Оружие падлы "/>
+                    <TextBox Text="{Binding WeaponsCharacter}"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

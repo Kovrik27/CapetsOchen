@@ -18,20 +18,40 @@ namespace CapetsOchen.NeDyadyaPushkin
     /// <summary>
     /// Логика взаимодействия для Prikol.xaml
     /// </summary>
-    public partial class Prikol : Window
+    public partial class Prikol : Window 
     {
+        private DataBase dataBase;
+
         public ObservableCollection<Character> characters;
 
         public ObservableCollection<Character> Characters
         {
-            get => characters; set { characters = value; }
+            get => characters; set { characters = value;}
+            
+        }
+
+        public ObservableCollection<RacesCharacters> races;
+
+        public ObservableCollection<RacesCharacters> Races
+        {
+            get => races; set { races = value; }
+        }
+
+        public ObservableCollection<WeaponsCharacters> weapons;
+
+        public ObservableCollection<WeaponsCharacters> Weapons
+        {
+            get => weapons; set { weapons = value; }
         }
 
         public Prikol()
         {
             InitializeComponent();
             DataContext = this;
-
+            dataBase = DataBase.Get();
+            Characters = new ObservableCollection<Character>(dataBase.GetCharacters());
+            Races = new ObservableCollection<RacesCharacters>(dataBase.GetRacesCharacters());
+            Weapons = new ObservableCollection<WeaponsCharacters>(dataBase.GetWeaponsCharacters());
         }
 
     }

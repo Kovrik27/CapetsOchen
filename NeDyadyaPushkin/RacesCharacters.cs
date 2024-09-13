@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapetsOchen.NeDyadyaPushkin
 {
+    [MysqlTable ("RacesCharacters")]
     public class RacesCharacters
     {
         [MysqlColumn("Title")]

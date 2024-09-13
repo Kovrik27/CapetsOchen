@@ -20,6 +20,7 @@ public class DataBase
         sb.ConnectionTimeout = 5;
         mySqlConnection = new MySqlConnection(sb.ToString());
         MysqlTools.SetConnection(mySqlConnection);
+        OpenConnection();
     }
 
     private bool OpenConnection()

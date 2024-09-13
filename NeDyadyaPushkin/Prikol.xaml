@@ -19,13 +19,13 @@
         </Grid.RowDefinitions>
         <Label Content="Различные странные твари" HorizontalAlignment="Center" FontSize="20" Grid.ColumnSpan="3"/>
         <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
-            <ListView ItemsSource="{Binding NameCharacters}">
+            <ListView ItemsSource="{Binding Characters}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Имя твари" DisplayMemberBinding="{Binding Name}"/>
                         <GridViewColumn Header="Фамилия твари" DisplayMemberBinding="{Binding Lastname}"/>
-                        <GridViewColumn Header="Раса твари"/>
-                        <GridViewColumn Header="Оружие твари"/>
+                        <GridViewColumn Header="Раса твари" DisplayMemberBinding="{Binding Races.Title}"/>
+                        <GridViewColumn Header="Оружие твари" DisplayMemberBinding="{Binding Weapons.Title}"/>
                     </GridView>
                 </ListView.View>
             </ListView>

@@ -20,5 +20,15 @@ namespace CapetsOchen.NeDyadyaPushkin
             return MysqlTools.SelectRowFromTable<Character>(id);
         }
 
+        public static List<RacesCharacters> GetRacesCharacters(this DataBase database) 
+        {
+            return MysqlTools.SimpleSelectFromTable<RacesCharacters>();
+        }
+
+        public static List<WeaponsCharacters> GetWeaponsCharacters(this DataBase database)
+        {
+            return MysqlTools.SimpleSelectFromTable<WeaponsCharacters>();
+        }
+
     }
 }
